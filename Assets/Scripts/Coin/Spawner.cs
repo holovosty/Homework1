@@ -18,10 +18,10 @@ public class Spawner : MonoBehaviour
             _instantiantePoints[i] = _spawnPoints.GetChild(i);
         }
 
-        Instantiate();
+        Create();
     }
 
-    private void Instantiate()
+    private void Create()
     {
         int currentPoint = 0;
 

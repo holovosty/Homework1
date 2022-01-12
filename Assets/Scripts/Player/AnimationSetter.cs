@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
+
 public class AnimationSetter : MonoBehaviour
 {
     private Animator _animator;
@@ -14,7 +16,7 @@ public class AnimationSetter : MonoBehaviour
 
     private void Start()
     {
-        TryGetComponent<Animator>(out _animator);
+        _animator = GetComponent<Animator>();
     }
 
     public void StartMove()
