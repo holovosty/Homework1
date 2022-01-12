@@ -9,8 +9,6 @@ public class Spawner : MonoBehaviour
 
     private Transform[] _instantiantePoints;
 
-
-
     private void Start()
     {
         _instantiantePoints = new Transform[_spawnPoints.childCount];

@@ -19,7 +19,6 @@ public class AnimationSetter : MonoBehaviour
 
     public void StartMove()
     {
-        Debug.Log("Start Move");
         _animator.SetBool(Stats.IsMove, true);
     }
 
