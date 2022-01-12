@@ -5,32 +5,32 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameObject _templatePrefab;
-    [SerializeField] private Transform _spawnPoints;
+    [SerializeField] private Transform _spawnLocation;
 
-    private Transform[] _instantiantePoints;
+    private Transform[] _spawnPoints;
 
     private void Start()
     {
-        _instantiantePoints = new Transform[_spawnPoints.childCount];
+        _spawnPoints = new Transform[_spawnLocation.childCount];
 
-        for (int i = 0; i < _spawnPoints.childCount; i++)
+        for (int i = 0; i < _spawnLocation.childCount; i++)
         {
-            _instantiantePoints[i] = _spawnPoints.GetChild(i);
+            _spawnPoints[i] = _spawnLocation.GetChild(i);
         }
 
-        Create();
+        Spawn();
     }
 
-    private void Create()
+    private void Spawn()
     {
         int currentPoint = 0;
 
-        while (currentPoint != _instantiantePoints.Length)
+        while (currentPoint != _spawnPoints.Length)
         {
-            Transform instantiatePosition = _instantiantePoints[currentPoint];
+            Transform instantiatePosition = _spawnPoints[currentPoint];
             GameObject newItem = Instantiate(_templatePrefab, instantiatePosition.position, Quaternion.identity);
 
-            if (currentPoint < _instantiantePoints.Length)
+            if (currentPoint < _spawnPoints.Length)
             {
                 currentPoint++;
             }
